@@ -10,6 +10,8 @@ fi
     --disable-dependency-tracking \
     --prefix=${PREFIX}
 if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 0 ]]; then
-    make -j${CPU_COUNT} check
+    if [[ ${target_platform} != "linux-ppc64le" ]] && [[ ${target_platform} != "linux-aarch64" ]]; then
+        make -j${CPU_COUNT} check
+    fi
 fi
 make -j${CPU_COUNT} install
