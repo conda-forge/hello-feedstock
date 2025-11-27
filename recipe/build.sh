@@ -6,12 +6,10 @@ if [[ $target_platform =~ .*osx.* ]]; then
     LDFLAGS="${LDFLAGS} -liconv"
 fi
 
-./configure --disable-silent \
+./configure --disable-silent-rules \
     --disable-dependency-tracking \
     --prefix=${PREFIX}
 if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 0 ]]; then
-    if [[ ${target_platform} != "linux-ppc64le" ]] && [[ ${target_platform} != "linux-aarch64" ]]; then
-        make -j${CPU_COUNT} check
-    fi
+    make -j${CPU_COUNT} check
 fi
 make -j${CPU_COUNT} install
