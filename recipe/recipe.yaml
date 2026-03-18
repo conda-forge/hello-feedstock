@@ -1,5 +1,5 @@
 context:
-  version: "2.12.2"
+  version: "2.12.3"
 
 package:
   name: hello
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://ftp.gnu.org/gnu/hello/hello-${{ version }}.tar.gz
-  sha256: 5a9a996dc292cc24dcf411cee87e92f6aae5b8d13bd9c6819b4c7a9dce0818ab
+  sha256: 0d5f60154382fee10b114a1c34e785d8b1f492073ae2d3a6f7b147687b366aa0
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 requirements:
